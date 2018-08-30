@@ -4,7 +4,6 @@ using UnityEngine;
 public class Planet: MonoBehaviour
 {
 	private const                              int            CUBE_FACE_COUNT = 6;
-	public                                     bool           AutoUpdate      = true;
 	[ShowAsComponent]                  public  ColourSettings ColourSettings;
 	[HideInInspector]                  public  bool           ColourSettingsFoldout;
 	[SerializeField] [HideInInspector] private MeshFilter[]   MeshFilters;
@@ -45,24 +44,6 @@ public class Planet: MonoBehaviour
 		Initialize();
 		GenerateMesh();
 		GenerateColours();
-	}
-
-	public void OnShapeSettingsUpdated()
-	{
-		if(AutoUpdate)
-		{
-			Initialize();
-			GenerateMesh();
-		}
-	}
-
-	public void OnColourSettingsUpdated()
-	{
-		if(AutoUpdate)
-		{
-			Initialize();
-			GenerateColours();
-		}
 	}
 
 	private void GenerateMesh()
